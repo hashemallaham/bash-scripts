@@ -13,10 +13,10 @@
 read -p "Enter the domain name: " COMMON_NAME
 
 # Generate a private key
-openssl genrsa -out server.key 2048
+openssl genrsa -out $COMMON_NAME.key 2048
 
 # Generate a certificate signing request (CSR)
-openssl req -new -key server.key -out COMMON_NAME.csr -subj "/CN=$COMMON_NAME"
+openssl req -new -key $COMMON_NAME.key -out $COMMON_NAME.csr -subj "/CN=$COMMON_NAME"
 
 # Generate a self-signed certificate
-openssl x509 -req -days 365 -in server.csr -signkey COMMON_NAME.key -out COMMON_NAME.crt
+openssl x509 -req -days 365 -in $COMMON_NAME.csr -signkey $COMMON_NAME.key -out $COMMON_NAME.crt
