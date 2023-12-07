@@ -51,6 +51,7 @@ echo "Syncing data from Internet Repos locally..."
 echo "This stage may takes a while, please wait..."
 sleep 10s
 mkdir -p /var/www/html/repos/{base,centosplus,extras,updates}
+chmod -R u+rw,g+r,o+r /var/www/html/repos/{base,centosplus,extras,updates}
 reposync -g -l -d -m --repoid=base --newest-only --download-metadata --download_path=/var/www/html/repos/
 reposync -g -l -d -m --repoid=centosplus --newest-only --download-metadata --download_path=/var/www/html/repos/
 reposync -g -l -d -m --repoid=extras --newest-only --download-metadata --download_path=/var/www/html/repos/
