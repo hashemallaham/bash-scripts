@@ -42,7 +42,7 @@ yum update
 yum install nginx -y
 systemctl enable --now nginx
 
-echo -r "\n"
+echo -e "\n"
 echo "installing yum utilites..."
 yum install createrepo yum-utils -y
 echo "\n\n"
